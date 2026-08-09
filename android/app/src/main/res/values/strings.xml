@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">3DCreator</string>
+
+    <!-- Navigation -->
+    <string name="nav_capture">Capture</string>
+    <string name="nav_gallery">Gallery</string>
+    <string name="nav_upload">Upload</string>
+    <string name="nav_jobs">Jobs</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home -->
+    <string name="home_title">3D Creator</string>
+    <string name="home_subtitle">Turn photos &amp; videos into 3D models</string>
+    <string name="home_capture">Take a photo / video</string>
+    <string name="home_gallery">Pick from gallery</string>
+    <string name="home_mode_hint">Reconstruction mode</string>
+    <string name="capture_mode_single">Single photo</string>
+    <string name="capture_mode_multi">Multi-photo 360°</string>
+    <string name="capture_mode_video">Video</string>
+    <string name="home_mode_single_desc">Fast AI 3D preview from a single photo</string>
+    <string name="home_mode_multi_desc">High-precision, measured 360° model from many photos</string>
+    <string name="home_mode_video_desc">Reconstruct a 3D model from a short video</string>
+    <string name="home_how_it_works">How it works</string>
+
+    <!-- Capture -->
+    <string name="capture_title">Capture</string>
+    <string name="capture_photo">Photo</string>
+    <string name="capture_video">Video</string>
+    <string name="capture_stop">Stop</string>
+    <string name="capture_retake">Retake</string>
+    <string name="capture_use">Use photo</string>
+    <string name="capture_use_video">Use video</string>
+    <string name="capture_hint">Center the object and keep it still</string>
+    <string name="capture_flash">Flash</string>
+    <string name="capture_flip">Switch camera</string>
+    <string name="camera_guide_360">Walk around the object and capture 20–50 photos</string>
+    <string name="camera_shots">%1$d / %2$d shots</string>
+    <string name="camera_shots_recommend">Add at least 20 shots for the best quality</string>
+
+    <!-- Gallery -->
+    <string name="gallery_title">Gallery</string>
+    <string name="gallery_pick">Select media</string>
+    <string name="gallery_selected">%1$d selected</string>
+    <string name="gallery_next">Next</string>
+    <string name="gallery_empty">No media selected</string>
+    <string name="gallery_multi_hint">High-precision mode: pick 20–50 photos taken in 360° around the object. They are bundled into one reconstruction job.</string>
+    <string name="gallery_remove">Remove</string>
+
+    <!-- Upload -->
+    <string name="upload_title">Upload</string>
+    <string name="upload_progress">Uploading… %1$d%%</string>
+    <string name="upload_queued">Queued</string>
+    <string name="upload_uploading">Uploading</string>
+    <string name="upload_done">Done</string>
+    <string name="upload_failed">Failed</string>
+    <string name="upload_retry">Retry</string>
+    <string name="upload_cancel">Cancel</string>
+    <string name="upload_all_done">All uploads complete</string>
+    <string name="upload_creating_job">Creating 3D job…</string>
+
+    <!-- Jobs -->
+    <string name="jobs_title">Jobs</string>
+    <string name="job_detail_title">Job details</string>
+    <string name="job_status_queued">Queued</string>
+    <string name="job_status_running">Processing</string>
+    <string name="job_status_succeeded">Completed</string>
+    <string name="job_status_failed">Failed</string>
+    <string name="job_status_cancelled">Cancelled</string>
+    <string name="job_status_unknown">Unknown</string>
+    <string name="job_type_single">Single photo → 3D</string>
+    <string name="job_type_multi">Multi-photo → 3D (HD)</string>
+    <string name="job_type_video">Video → 3D</string>
+    <string name="job_thumbnail">Model preview</string>
+    <string name="job_open_share">Share</string>
+    <string name="job_tier_preview">Preview</string>
+    <string name="job_tier_standard">Standard</string>
+    <string name="job_tier_high">High</string>
+    <string name="job_progress">Progress: %1$d%%</string>
+    <string name="job_open_viewer">Open 3D viewer</string>
+    <string name="job_empty">No jobs yet</string>
+    <string name="job_created">Created: %1$s</string>
+    <string name="job_updated">Updated: %1$s</string>
+    <string name="job_credits">Credits charged: %1$d</string>
+    <string name="job_error">Error: %1$s</string>
+    <string name="job_refresh">Refresh</string>
+
+    <!-- Viewer -->
+    <string name="viewer_title">3D Viewer</string>
+    <string name="viewer_loading">Loading model…</string>
+    <string name="viewer_error">Could not load model</string>
+    <string name="viewer_retry">Retry</string>
+    <string name="viewer_download">Download</string>
+    <string name="viewer_not_ready">Model is still being generated</string>
+
+    <!-- Share -->
+    <string name="share_title">Share</string>
+    <string name="share_download">Download model</string>
+    <string name="share_share">Share</string>
+    <string name="share_saved">Saved to Downloads</string>
+    <string name="share_export_glb">Export .glb</string>
+    <string name="share_via">Share 3D model via</string>
+    <string name="share_copy_link">Copy link</string>
+    <string name="share_export_title">Export options</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_system">Follow system</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_chinese">中文</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_sign_out">Sign out</string>
+    <string name="settings_about_text">3DCreator turns photos and videos into high-resolution 3D models.</string>
+    <string name="settings_clear_cache">Clear cache</string>
+    <string name="settings_clear_cache_summary">Free up space used by temporary files</string>
+
+    <!-- Permissions / common -->
+    <string name="permission_camera_rationale">Camera is required to capture photos and videos for 3D reconstruction.</string>
+    <string name="permission_required">Permission required</string>
+    <string name="common_retry">Retry</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_ok">OK</string>
+    <string name="common_back">Back</string>
+    <string name="common_next">Next</string>
+    <string name="common_loading">Loading…</string>
+    <string name="common_error">Something went wrong</string>
+    <string name="common_coming_soon">Coming soon</string>
+    <string name="common_sign_in">Sign in</string>
+    <string name="auth_token_hint">Auth token (JWT)</string>
+</resources>

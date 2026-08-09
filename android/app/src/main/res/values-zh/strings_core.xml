@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Core / non-UI-owned strings (中文). Mirror of res/values/strings_core.xml. -->
+<resources>
+    <string name="core_upload_channel_name">3DCreator 上传</string>
+
+    <string name="core_cache_title">缓存</string>
+    <string name="core_cache_clear">清除缓存</string>
+    <string name="core_cache_cleared">缓存已清除</string>
+    <string name="core_cache_size">缓存：%1$s</string>
+    <string name="core_about_title">关于</string>
+    <string name="core_about_body">3DCreator 把照片和视频变成高清 3D 模型。</string>
+</resources>

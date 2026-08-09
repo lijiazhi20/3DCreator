@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Simple 3D-ish cube glyph for the app icon foreground. -->
+    <group android:translateX="30" android:translateY="30">
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M24,2 L46,14 L46,38 L24,50 L2,38 L2,14 Z" />
+        <path
+            android:fillColor="#D0BCFF"
+            android:pathData="M24,2 L46,14 L24,26 L2,14 Z" />
+        <path
+            android:fillColor="#B9A7F0"
+            android:pathData="M2,14 L24,26 L24,50 L2,38 Z" />
+        <path
+            android:fillColor="#9C86E0"
+            android:pathData="M46,14 L24,26 L24,50 L46,38 Z" />
+    </group>
+</vector>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Core / non-UI-owned strings. UI team: mirror in res/values-zh/strings_core.xml. -->
+<resources>
+    <!-- Foreground upload service notification channel (referenced by UploadWorker + UploadForegroundService) -->
+    <string name="core_upload_channel_name">3DCreator uploads</string>
+
+    <!-- Settings: cache + about (placeholders; wire buttons in SettingsScreen) -->
+    <string name="core_cache_title">Cache</string>
+    <string name="core_cache_clear">Clear cache</string>
+    <string name="core_cache_cleared">Cache cleared</string>
+    <string name="core_cache_size">Cache: %1$s</string>
+    <string name="core_about_title">About</string>
+    <string name="core_about_body">3DCreator turns photos &amp; videos into high-resolution 3D models.</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Shared downloads (GLB exports) exposed to other apps via FileProvider -->
+    <cache-path name="share_cache" path="share/" />
+    <files-path name="internal_files" path="." />
+    <external-cache-path name="external_cache" path="." />
+    <external-files-path name="external_files" path="." />
+</paths>

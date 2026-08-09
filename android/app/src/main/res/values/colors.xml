@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 dynamic color is enabled in Compose; these are fallbacks for the splash/theme. -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="seed">#4F6BED</color>
+</resources>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">3DCreator</string>
+
+    <!-- Navigation -->
+    <string name="nav_capture">拍摄</string>
+    <string name="nav_gallery">相册</string>
+    <string name="nav_upload">上传</string>
+    <string name="nav_jobs">任务</string>
+    <string name="nav_settings">设置</string>
+
+    <!-- Home -->
+    <string name="home_title">3D 创作者</string>
+    <string name="home_subtitle">把照片和视频变成 3D 模型</string>
+    <string name="home_capture">拍照 / 录像</string>
+    <string name="home_gallery">从相册选择</string>
+    <string name="home_mode_hint">重建模式</string>
+    <string name="capture_mode_single">单张照片</string>
+    <string name="capture_mode_multi">多张照片 360°</string>
+    <string name="capture_mode_video">视频</string>
+    <string name="home_mode_single_desc">单张照片快速生成 AI 3D 预览</string>
+    <string name="home_mode_multi_desc">多张照片生成高精度、可测量的 360° 模型</string>
+    <string name="home_mode_video_desc">从短视频重建 3D 模型</string>
+    <string name="home_how_it_works">工作流程</string>
+
+    <!-- Capture -->
+    <string name="capture_title">拍摄</string>
+    <string name="capture_photo">照片</string>
+    <string name="capture_video">视频</string>
+    <string name="capture_stop">停止</string>
+    <string name="capture_retake">重拍</string>
+    <string name="capture_use">使用照片</string>
+    <string name="capture_use_video">使用视频</string>
+    <string name="capture_hint">对准物体并保持稳定</string>
+    <string name="capture_flash">闪光灯</string>
+    <string name="capture_flip">切换摄像头</string>
+    <string name="camera_guide_360">围绕物体拍摄，采集 20–50 张照片</string>
+    <string name="camera_shots">%1$d / %2$d 张</string>
+    <string name="camera_shots_recommend">建议至少拍摄 20 张以获得最佳效果</string>
+
+    <!-- Gallery -->
+    <string name="gallery_title">相册</string>
+    <string name="gallery_pick">选择素材</string>
+    <string name="gallery_selected">已选 %1$d 项</string>
+    <string name="gallery_next">下一步</string>
+    <string name="gallery_empty">未选择任何素材</string>
+    <string name="gallery_multi_hint">高清模式：请围绕物体 360° 拍摄 20–50 张照片，系统会将其打包为同一个重建任务。</string>
+    <string name="gallery_remove">移除</string>
+
+    <!-- Upload -->
+    <string name="upload_title">上传</string>
+    <string name="upload_progress">上传中… %1$d%%</string>
+    <string name="upload_queued">排队中</string>
+    <string name="upload_uploading">上传中</string>
+    <string name="upload_done">已完成</string>
+    <string name="upload_failed">失败</string>
+    <string name="upload_retry">重试</string>
+    <string name="upload_cancel">取消</string>
+    <string name="upload_all_done">全部上传完成</string>
+    <string name="upload_creating_job">正在创建 3D 任务…</string>
+
+    <!-- Jobs -->
+    <string name="jobs_title">任务</string>
+    <string name="job_detail_title">任务详情</string>
+    <string name="job_status_queued">排队中</string>
+    <string name="job_status_running">处理中</string>
+    <string name="job_status_succeeded">已完成</string>
+    <string name="job_status_failed">失败</string>
+    <string name="job_status_cancelled">已取消</string>
+    <string name="job_status_unknown">未知</string>
+    <string name="job_type_single">单张照片转 3D</string>
+    <string name="job_type_multi">多张照片转 3D（高清）</string>
+    <string name="job_type_video">视频转 3D</string>
+    <string name="job_thumbnail">模型预览</string>
+    <string name="job_open_share">分享</string>
+    <string name="job_tier_preview">预览</string>
+    <string name="job_tier_standard">标准</string>
+    <string name="job_tier_high">高清</string>
+    <string name="job_progress">进度：%1$d%%</string>
+    <string name="job_open_viewer">打开 3D 预览</string>
+    <string name="job_empty">暂无任务</string>
+    <string name="job_created">创建时间：%1$s</string>
+    <string name="job_updated">更新时间：%1$s</string>
+    <string name="job_credits">消耗积分：%1$d</string>
+    <string name="job_error">错误：%1$s</string>
+    <string name="job_refresh">刷新</string>
+
+    <!-- Viewer -->
+    <string name="viewer_title">3D 预览</string>
+    <string name="viewer_loading">模型加载中…</string>
+    <string name="viewer_error">模型加载失败</string>
+    <string name="viewer_retry">重试</string>
+    <string name="viewer_download">下载</string>
+    <string name="viewer_not_ready">模型仍在生成中</string>
+
+    <!-- Share -->
+    <string name="share_title">分享</string>
+    <string name="share_download">下载模型</string>
+    <string name="share_share">分享</string>
+    <string name="share_saved">已保存到下载目录</string>
+    <string name="share_export_glb">导出 .glb</string>
+    <string name="share_via">通过以下方式分享 3D 模型</string>
+    <string name="share_copy_link">复制链接</string>
+    <string name="share_export_title">导出选项</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="settings_language">语言</string>
+    <string name="settings_language_system">跟随系统</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_chinese">中文</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_version">版本 %1$s</string>
+    <string name="settings_sign_out">退出登录</string>
+    <string name="settings_about_text">3DCreator 把照片和视频变成高分辨率 3D 模型。</string>
+    <string name="settings_clear_cache">清除缓存</string>
+    <string name="settings_clear_cache_summary">释放临时文件占用的空间</string>
+
+    <!-- Permissions / common -->
+    <string name="permission_camera_rationale">需要相机权限才能拍摄用于 3D 重建的照片和视频。</string>
+    <string name="permission_required">需要权限</string>
+    <string name="common_retry">重试</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_ok">确定</string>
+    <string name="common_back">返回</string>
+    <string name="common_next">下一步</string>
+    <string name="common_loading">加载中…</string>
+    <string name="common_error">出错了</string>
+    <string name="common_coming_soon">敬请期待</string>
+    <string name="common_sign_in">登录</string>
+    <string name="auth_token_hint">认证令牌（JWT）</string>
+</resources>

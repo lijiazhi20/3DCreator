@@ -1,0 +1,37 @@
+version: "3.9"
+
+# Production-like infrastructure for local development / small deployment.
+# For managed cloud, replace with managed Postgres/Redis.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-3dcreator}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-3dcreator}
+      POSTGRES_DB: ${POSTGRES_DB:-3dcreator}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-3dcreator} -d ${POSTGRES_DB:-3dcreator}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:

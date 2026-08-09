@@ -1,0 +1,24 @@
+# ---- Backend / Python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+.env
+backend/dev.db
+backend/queue.db
+backend/storage/
+backend/data/
+worker/.data/
+
+# ---- Android (android/.gitignore also covers the app subfolder) ----
+android/local.properties
+*.jks
+release-key.*
+
+# ---- OS / editor ----
+.DS_Store
+.idea/
+*.iml
+Thumbs.db
