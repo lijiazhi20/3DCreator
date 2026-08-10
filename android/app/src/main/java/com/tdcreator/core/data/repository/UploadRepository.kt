@@ -136,7 +136,8 @@ open class UploadRepository @Inject constructor(
     }
 
     private fun zipUris(uris: List<Uri>, zipFile: File) {
-        context.contentResolver.openOutputStream(zipFile)?.use { os ->
+        val zipUri = Uri.fromFile(zipFile)
+        context.contentResolver.openOutputStream(zipUri)?.use { os ->
             ZipOutputStream(BufferedOutputStream(os)).use { zos ->
                 uris.forEachIndexed { i, uri ->
                     val ext = extensionFor(uri)

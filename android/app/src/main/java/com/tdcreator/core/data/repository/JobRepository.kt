@@ -27,7 +27,7 @@ class JobRepository @Inject constructor(
     /** Pull the full job list from the backend and cache it. */
     suspend fun refreshJobs(): List<JobEntity> {
         val remote = api.listJobs()
-        val entities = remote.map { it.toEntity() }
+        val entities = remote.map { toEntity(it) }
         jobDao.upsertAll(entities)
         return entities
     }
@@ -35,7 +35,7 @@ class JobRepository @Inject constructor(
     /** Poll a single job (used by the detail screen + periodic worker). */
     suspend fun refreshJob(id: String): JobEntity {
         val remote = api.getJob(id)
-        val entity = remote.toEntity()
+        val entity = toEntity(remote)
         jobDao.upsert(entity)
         return entity
     }
