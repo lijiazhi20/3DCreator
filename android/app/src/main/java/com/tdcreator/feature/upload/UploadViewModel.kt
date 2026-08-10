@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tdcreator.core.data.local.UploadEntity
+import com.tdcreator.core.data.local.UploadStatus
 import com.tdcreator.core.data.repository.UploadRepository
 import com.tdcreator.core.network.dto.JobType
 import dagger.hilt.android.lifecycle.HiltViewModel
