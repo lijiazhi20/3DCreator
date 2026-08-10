@@ -49,6 +49,10 @@ jobs:
       # Android SDK location (set by android-actions/setup-android@v3).
       ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
       ANDROID_HOME: ${{ github.workspace }}/android-sdk
+      # NOTE: `secrets` context is NOT allowed in step `if:` conditions.
+      # So we derive a boolean env var here (jobs CAN read secrets) and gate
+      # release/tar steps on it instead.
+      HAS_RELEASE_KEY: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' && secrets.KEYSTORE_PASSWORD != '' }}
 
     steps:
       - name: Checkout
@@ -113,14 +117,14 @@ jobs:
       # step is skipped; without it, this step is skipped or fails safely.
       # ------------------------------------------------------------------
       - name: Decode upload keystore (Release only)
-        if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' && secrets.KEYSTORE_PASSWORD != '' }}
+        if: ${{ env.HAS_RELEASE_KEY == 'true' }}
         run: |
           mkdir -p "${{ github.workspace }}/android/app"
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > "${{ github.workspace }}/android/app/release-key.jks"
 
       - name: Assemble Release APK (Cloud, signed)
         id: assemble_release
-        if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' && secrets.KEYSTORE_PASSWORD != '' }}
+        if: ${{ env.HAS_RELEASE_KEY == 'true' }}
         env:
           KEYSTORE_PATH: ${{ github.workspace }}/android/app/release-key.jks
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -129,7 +133,7 @@ jobs:
         run: gradle assembleRelease
 
       - name: Upload Release APK
-        if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' && secrets.KEYSTORE_PASSWORD != '' }}
+        if: ${{ env.HAS_RELEASE_KEY == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: app-release
