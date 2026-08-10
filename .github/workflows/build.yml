@@ -96,6 +96,7 @@ jobs:
         run: gradle testDebugUnitTest
 
       - name: Assemble Debug APK  (cloud compile of the client)
+        id: assemble_debug
         run: gradle assembleDebug
 
       - name: Upload Debug APK
@@ -118,6 +119,7 @@ jobs:
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/release-key.jks
 
       - name: Assemble Release APK (Cloud, signed)
+        id: assemble_release
         if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' && secrets.KEYSTORE_PASSWORD != '' }}
         env:
           KEYSTORE_PATH: ${{ github.workspace }}/android/app/release-key.jks
@@ -133,3 +135,59 @@ jobs:
           name: app-release
           path: android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: warn
+
+      # ------------------------------------------------------------------
+      # DISTRIBUTION TAR — package the built APK(s) + metadata into a single
+      # tar.gz so the deliverable is one file. This satisfies the "产出 tar
+      # 文件（含 apk）" requirement. If release was signed, BOTH apks are
+      # included; otherwise the debug apk is always present.
+      # ------------------------------------------------------------------
+      - name: Package distribution tar (APK + metadata)
+        run: |
+          mkdir -p dist
+          shopt -s nullglob
+          # Debug APK is always produced.
+          cp -v app/build/outputs/apk/debug/app-debug.apk dist/ 2>/dev/null || true
+          # Release APK only if it was signed & built.
+          if [ -f app/build/outputs/apk/release/app-release.apk ]; then
+            cp -v app/build/outputs/apk/release/app-release.apk dist/
+          fi
+          {
+            echo "project=3DCreator"
+            echo "commit=$(git rev-parse --short HEAD)"
+            echo "ref=${{ github.ref }}"
+            echo "built_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "runner=github-actions-ubuntu-latest"
+            echo "apks=$(ls dist/*.apk 2>/dev/null | wc -l | tr -d ' ')"
+          } > dist/build-info.txt
+          echo "---- dist contents ----"; ls -la dist
+          tar -czvf 3dcreator-android.tar.gz -C dist .
+          echo "---- tar created ----"; ls -la 3dcreator-android.tar.gz
+
+      - name: Upload distribution tar
+        uses: actions/upload-artifact@v4
+        with:
+          name: 3dcreator-android
+          path: android/3dcreator-android.tar.gz
+          if-no-files-found: error
+
+      # ------------------------------------------------------------------
+      # CLOUD DEBUG — surface unit-test results as a downloadable artifact so
+      # build/test failures can be inspected without pulling the repo.
+      # ------------------------------------------------------------------
+      - name: Upload test results (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-debug
+          path: android/app/build/test-results/debug
+          if-no-files-found: warn
+
+      - name: Build summary
+        if: always()
+        run: |
+          echo "### 3DCreator Cloud Build" >> "$GITHUB_STEP_SUMMARY"
+          echo "- commit: $(git rev-parse --short HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- debug apk: ${{ steps.assemble_debug.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- release apk: ${{ steps.assemble_release.outcome || 'skipped (no signing secrets)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- tar artifact: 3dcreator-android.tar.gz" >> "$GITHUB_STEP_SUMMARY"
