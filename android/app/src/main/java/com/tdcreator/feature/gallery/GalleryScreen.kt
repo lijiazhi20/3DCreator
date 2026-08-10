@@ -58,7 +58,7 @@ fun GalleryScreen(nav: NavHostController, vm: UploadViewModel = hiltViewModel())
 
     val picker = rememberLauncherForActivityResult(
         ActivityResultContracts.PickVisualMediaMultiple(),
-    ) { uris -> selected = uris }
+    ) { uris -> selected = uris ?: emptyList() }
 
     val multiMin = 2
     val canProceed = if (mode == JobType.MULTI_IMAGE) selected.size >= multiMin else selected.isNotEmpty()

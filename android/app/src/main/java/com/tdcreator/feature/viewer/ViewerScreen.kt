@@ -36,7 +36,7 @@ import java.net.URLEncoder
 @Composable
 fun ViewerScreen(nav: NavHostController, jobId: String, vm: ViewerViewModel = hiltViewModel()) {
     val state by vm.state.collectAsStateWithLifecycle()
-    val webView = remember { mutableWebViewHolder() }
+    val webView = remember { androidx.compose.runtime.mutableStateOf<WebView?>(null) }
 
     LaunchedEffect(jobId) { vm.load(jobId) }
 
@@ -77,6 +77,3 @@ fun ViewerScreen(nav: NavHostController, jobId: String, vm: ViewerViewModel = hi
         }
     }
 }
-
-@Composable
-private fun mutableWebViewHolder() = remember { androidx.compose.runtime.mutableStateOf<WebView?>(null) }

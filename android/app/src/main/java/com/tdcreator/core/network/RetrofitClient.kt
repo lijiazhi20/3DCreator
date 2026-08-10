@@ -2,6 +2,7 @@ package com.tdcreator.core.network
 
 import com.tdcreator.core.data.prefs.PreferencesRepository
 import kotlinx.serialization.json.Json
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient

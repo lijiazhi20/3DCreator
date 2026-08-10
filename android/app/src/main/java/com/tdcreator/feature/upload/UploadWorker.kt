@@ -18,6 +18,7 @@ import com.tdcreator.core.network.dto.JobType
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
 /**
@@ -42,9 +43,10 @@ class UploadWorker @AssistedInject constructor(
         try {
             val item = uploadRepo.observeQueueOnce(uid)
                 ?: return@withContext Result.failure()
-            // Stream bytes with live progress into Room (throttled inside the repo).
+            // Stream bytes with live progress into Room. The okio write callback is NOT a suspend
+            // context, so we bridge into one with runBlocking for the tiny Room write.
             val assetId = uploadRepo.localUpload(item) { pct ->
-                runCatching { uploadRepo.updateProgress(uid, pct) }
+                runCatching { runBlocking { uploadRepo.updateProgress(uid, pct) } }
             }
             // Honor the user-selected reconstruction mode, but force VIDEO for video input.
             val type = if (item.contentType.startsWith("video")) {
