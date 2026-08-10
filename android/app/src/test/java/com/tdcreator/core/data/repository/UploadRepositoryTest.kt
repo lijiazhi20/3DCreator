@@ -2,6 +2,7 @@ package com.tdcreator.core.data.repository
 
 import android.content.Context
 import android.net.Uri
+import com.tdcreator.core.data.local.UploadDao
 import com.tdcreator.core.data.local.UploadStatus
 import com.tdcreator.core.network.ApiService
 import com.tdcreator.core.network.dto.JobType
