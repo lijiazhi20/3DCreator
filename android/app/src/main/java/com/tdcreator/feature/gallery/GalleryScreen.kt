@@ -57,7 +57,7 @@ fun GalleryScreen(nav: NavHostController, vm: UploadViewModel = hiltViewModel())
     val mode by vm.mode.collectAsStateWithLifecycle()
 
     val picker = rememberLauncherForActivityResult<PickVisualMediaRequest, List<Uri>>(
-        ActivityResultContracts.PickVisualMediaMultiple(),
+        ActivityResultContracts.PickMultipleVisualMedia(),
     ) { uris -> selected = uris ?: emptyList() }
 
     val multiMin = 2

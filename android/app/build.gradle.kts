@@ -94,16 +94,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-
-    // Force a modern androidx.activity so ActivityResultContracts.PickVisualMediaMultiple
-    // (added in activity 1.8.0) is always on the classpath, regardless of what transitive
-    // deps (e.g. camera-view) would otherwise resolve to.
-    configurations.all {
-        resolutionStrategy {
-            force("androidx.activity:activity:1.9.2")
-            force("androidx.activity:activity-compose:1.9.2")
-        }
-    }
 }
 
 dependencies {
