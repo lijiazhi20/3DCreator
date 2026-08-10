@@ -24,6 +24,12 @@ android {
 
         // Backend base URL is overridable per build type / flavor.
         buildConfigField("String", "BASE_URL", "\"https://api.3dcreator.example/\"")
+
+        // Ship only 64-bit ARM (required by the target Honor device + Play 64-bit rule).
+        // `ndk` is only valid inside defaultConfig in AGP's Kotlin DSL.
+        ndk {
+            abiFilters += listOf("arm64-v8a")
+        }
     }
 
     // Release signing reads from CI/CD-provided env vars so the cloud build can produce a
@@ -87,11 +93,6 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
-    }
-
-    ndk {
-        // Ship only 64-bit ARM as required by the target Honor device.
-        abiFilters += listOf("arm64-v8a")
     }
 }
 
