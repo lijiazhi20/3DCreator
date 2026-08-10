@@ -18,6 +18,7 @@ import com.tdcreator.core.network.ProgressRequestBody
 import com.tdcreator.core.network.dto.JobType
 import com.tdcreator.core.network.dto.LocalUploadResponse
 import com.tdcreator.core.network.dto.PresignRequest
+import com.tdcreator.feature.upload.UploadWorker
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -219,7 +220,7 @@ open class UploadRepository @Inject constructor(
     // Test seam: open so unit tests can subclass with a no-op / recording scheduler
     // (the production path enqueues a WorkManager OneTimeWorkRequest).
     protected open fun scheduleWorker(uid: Long) {
-        val req = OneTimeWorkRequestBuilder<com.tdcreator.feature.upload.UploadWorker>()
+        val req = OneTimeWorkRequestBuilder<UploadWorker>()
             .setInputData(Data.Builder().putLong(UploadWorker.KEY_UID, uid).build())
             .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 5_000L, TimeUnit.MILLISECONDS)
             .addTag("upload")

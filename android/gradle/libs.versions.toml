@@ -10,6 +10,7 @@ navigationCompose = "2.7.7"
 camera = "1.4.1"
 retrofit = "2.11.0"
 retrofitKotlinx = "1.0.0"
+retrofitConverterKotlinx = "1.0.0"
 okhttp = "4.12.0"
 room = "2.6.1"
 datastore = "1.1.1"
@@ -40,7 +41,7 @@ androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycl
 androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera" }
 androidx-camera-video = { group = "androidx.camera", name = "camera-video", version.ref = "camera" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
-retrofit-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinx" }
+retrofit-kotlinx-serialization-converter = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofitConverterKotlinx" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
