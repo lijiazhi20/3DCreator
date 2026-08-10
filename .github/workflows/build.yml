@@ -19,7 +19,7 @@
 
 name: Build Android (Cloud)
 
-on:
+"on":
   push:
     branches: [main, master]
     paths:
